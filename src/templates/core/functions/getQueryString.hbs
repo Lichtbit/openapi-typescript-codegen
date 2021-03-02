@@ -7,6 +7,11 @@ function getQueryString(params: Record<string, any>): string {
                 value.forEach(value => {
                     qs.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
                 });
+            } else if (typeof value === 'object') {
+              Object.entries(value).forEach(([innerKey, value]) => {
+                const target = `${key}[${innerKey}]`
+                qs.push(`${encodeURIComponent(target)}=${encodeURIComponent(String(value))}`);
+              });
             } else {
                 qs.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
             }

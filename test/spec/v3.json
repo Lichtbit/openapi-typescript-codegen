@@ -792,6 +792,34 @@
                 ]
             }
         },
+        "/api/v{api-version}/style": {
+          "get": {
+              "tags": [
+                  "style"
+              ],
+              "operationId": "Style",
+              "parameters": [
+                  {
+                      "description": "This is an object parameter that is send in deepObject style",
+                      "name": "parameterDeepObject",
+                      "in": "query",
+                      "style": "deepObject",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "propOne": {
+                                "type": "string"
+                              },
+                              "propTwo": {
+                                "type": "boolean"
+                              }
+                          }
+                      },
+                      "collectionFormat": "csv"
+                  }
+              ]
+          }
+      },
         "/api/v{api-version}/types": {
             "get": {
                 "tags": [

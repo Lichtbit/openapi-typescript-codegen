@@ -2704,6 +2704,7 @@ export { ParametersService } from './services/ParametersService';
 export { RequestBodyService } from './services/RequestBodyService';
 export { ResponseService } from './services/ResponseService';
 export { SimpleService } from './services/SimpleService';
+export { StyleService } from './services/StyleService';
 export { TypesService } from './services/TypesService';
 export { UploadService } from './services/UploadService';
 "
@@ -4950,6 +4951,38 @@ export class SimpleService {
         const result = await __request({
             method: 'PATCH',
             path: \`/api/v\${OpenAPI.VERSION}/simple\`,
+        });
+        return result.body;
+    }
+
+}"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/services/StyleService.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+import { request as __request } from '../core/request';
+import { OpenAPI } from '../core/OpenAPI';
+
+export class StyleService {
+
+    /**
+     * @param parameterDeepObject This is an object parameter that is send in deepObject style
+     * @throws ApiError
+     */
+    public static async style(
+        parameterDeepObject?: {
+            propOne?: string,
+            propTwo?: boolean,
+        },
+    ): Promise<void> {
+        const result = await __request({
+            method: 'GET',
+            path: \`/api/v\${OpenAPI.VERSION}/style\`,
+            query: {
+                'parameterDeepObject': parameterDeepObject,
+            },
         });
         return result.body;
     }
